@@ -1,0 +1,32 @@
+/* Lógico_1: */
+
+CREATE TABLE funcionario (
+    Data_demissao date,
+    datta_nasci date,
+    cargo varchar(25),
+    Salario Decimal(4,2),
+    Carga_horaria Decimal(2,2),
+    email varchar(40),
+    Cpf varchar(14),
+    id_func int(20) PRIMARY KEY,
+    rg int(20)
+);
+
+CREATE TABLE depat (
+    id_depart Decimal(4,2) PRIMARY KEY
+);
+
+CREATE TABLE Relacionamento_1 (
+    fk_funcionario_id_func int(20),
+    fk_depat_id_depart Decimal(4,2)
+);
+ 
+ALTER TABLE Relacionamento_1 ADD CONSTRAINT FK_Relacionamento_1_1
+    FOREIGN KEY (fk_funcionario_id_func)
+    REFERENCES funcionario (id_func)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Relacionamento_1 ADD CONSTRAINT FK_Relacionamento_1_2
+    FOREIGN KEY (fk_depat_id_depart)
+    REFERENCES depat (id_depart)
+    ON DELETE RESTRICT;

@@ -1,7 +1,7 @@
 /* Lógico_1: */
 
 CREATE TABLE funcionario (
-Data_demissao date,,
+Data_demissao date,
 datta_nasci DATETIME,
 cargo varchar(25),
 Salario Decimal(4,2), 

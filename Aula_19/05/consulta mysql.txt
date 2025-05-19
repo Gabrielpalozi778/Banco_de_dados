@@ -1,0 +1,261 @@
+
+Consulta produtos
+
+
+
+
++------------+---------------------+--------+-------+-------------------+--------------+----------------+
+| id_produto | nome                | preco  | quant | marca             | id_categoria | unidade_medida |
++------------+---------------------+--------+-------+-------------------+--------------+----------------+
+|          3 | Detergente Neutro   |   8.90 |    50 | Ypê               |            1 | un             |
+|          4 | Sabão em Pó         |  12.50 |    30 | OMO               |            1 | un             |
+|          5 | Picanha Bovina      |  89.90 |    20 | Friboi            |            2 | kg             |
+|          6 | Peito de Frango     |  15.00 |   100 | Seara             |            2 | kg             |
+|          7 | Saco Plástico 50L   |   4.99 |   200 | Melhoramentos     |            3 | un             |
+|          8 | Caixa de Papelão    |   2.50 |   150 | Santa Clara       |            3 | un             |
+|          9 | Fone Bluetooth      | 120.00 |    30 | Philips           |            4 | un             |
+|         10 | Carregador USB-C    |  25.00 |    80 | Samsung           |            4 | un             |
+|         11 | Refrigerante 2L     |   8.50 |   120 | Coca-Cola         |            5 | lt             |
+|         12 | Água Mineral 500ml  |   2.00 |   200 | Crystal           |            5 | lt             |
+|         13 | Perfume Florais     | 149.90 |    15 | Natura            |            6 | un             |
+|         14 | Desodorante Roll-On |  14.00 |    50 | Rexona            |            6 | un             |
+|         15 | Pizza Calabresa     |  22.90 |    40 | Sadia             |            7 | kg             |
+|         16 | Lasanha de Frango   |  18.50 |    35 | Perdigão          |            7 | kg             |
+|         17 | Queijo Minas        |  25.00 |    60 | Itambé            |            8 | un             |
+|         18 | Iogurte Natural     |   3.50 |    90 | Nestlé            |            8 | un             |
+|         19 | Maçã Fuji (kg)      |   7.90 |   150 | Fazenda São Paulo |            9 | kg             |
+|         20 | Alface Crespa       |   2.50 |   100 | Horta Feliz       |            9 | kg             |
+|         21 | Atum em Óleo        |  10.00 |    80 | Gomes da Costa    |           10 | un             |
+|         22 | Milho em Conserva   |   6.50 |   120 | Quero             |           10 | un             |
++------------+---------------------+--------+-------+-------------------+--------------+----------------+
+20 rows in set (0.001 sec)
+
+MariaDB [etecmcm2]> SELECT nome, preco FROM produtos;
++---------------------+--------+
+| nome                | preco  |
++---------------------+--------+
+| Detergente Neutro   |   8.90 |
+| Sabão em Pó         |  12.50 |
+| Picanha Bovina      |  89.90 |
+| Peito de Frango     |  15.00 |
+| Saco Plástico 50L   |   4.99 |
+| Caixa de Papelão    |   2.50 |
+| Fone Bluetooth      | 120.00 |
+| Carregador USB-C    |  25.00 |
+| Refrigerante 2L     |   8.50 |
+| Água Mineral 500ml  |   2.00 |
+| Perfume Florais     | 149.90 |
+| Desodorante Roll-On |  14.00 |
+| Pizza Calabresa     |  22.90 |
+| Lasanha de Frango   |  18.50 |
+| Queijo Minas        |  25.00 |
+| Iogurte Natural     |   3.50 |
+| Maçã Fuji (kg)      |   7.90 |
+| Alface Crespa       |   2.50 |
+| Atum em Óleo        |  10.00 |
+| Milho em Conserva   |   6.50 |
++---------------------+--------+
+20 rows in set (0.000 sec)
+
+MariaDB [etecmcm2]> SELECT * FROM produtos WHERE marca = 'Perdigão';
++------------+-------------------+-------+-------+----------+--------------+----------------+
+| id_produto | nome              | preco | quant | marca    | id_categoria | unidade_medida |
++------------+-------------------+-------+-------+----------+--------------+----------------+
+|         16 | Lasanha de Frango | 18.50 |    35 | Perdigão |            7 | kg             |
++------------+-------------------+-------+-------+----------+--------------+----------------+
+1 row in set (0.000 sec)
+MariaDB [etecmcm2]> SELECT * FROM produtos WHERE preco > 20;
++------------+------------------+--------+-------+---------+--------------+----------------+
+| id_produto | nome             | preco  | quant | marca   | id_categoria | unidade_medida |
++------------+------------------+--------+-------+---------+--------------+----------------+
+|          5 | Picanha Bovina   |  89.90 |    20 | Friboi  |            2 | kg             |
+|          9 | Fone Bluetooth   | 120.00 |    30 | Philips |            4 | un             |
+|         10 | Carregador USB-C |  25.00 |    80 | Samsung |            4 | un             |
+|         13 | Perfume Florais  | 149.90 |    15 | Natura  |            6 | un             |
+|         15 | Pizza Calabresa  |  22.90 |    40 | Sadia   |            7 | kg             |
+|         17 | Queijo Minas     |  25.00 |    60 | Itambé  |            8 | un             |
++------------+------------------+--------+-------+---------+--------------+----------------+
+6 rows in set (0.000 sec)
+
+MariaDB [etecmcm2]> SELECT * FROM produtos WHERE quant <= 60;
++------------+---------------------+--------+-------+----------+--------------+----------------+
+| id_produto | nome                | preco  | quant | marca    | id_categoria | unidade_medida |
++------------+---------------------+--------+-------+----------+--------------+----------------+
+|          3 | Detergente Neutro   |   8.90 |    50 | Ypê      |            1 | un             |
+|          4 | Sabão em Pó         |  12.50 |    30 | OMO      |            1 | un             |
+|          5 | Picanha Bovina      |  89.90 |    20 | Friboi   |            2 | kg             |
+|          9 | Fone Bluetooth      | 120.00 |    30 | Philips  |            4 | un             |
+|         13 | Perfume Florais     | 149.90 |    15 | Natura   |            6 | un             |
+|         14 | Desodorante Roll-On |  14.00 |    50 | Rexona   |            6 | un             |
+|         15 | Pizza Calabresa     |  22.90 |    40 | Sadia    |            7 | kg             |
+|         16 | Lasanha de Frango   |  18.50 |    35 | Perdigão |            7 | kg             |
+|         17 | Queijo Minas        |  25.00 |    60 | Itambé   |            8 | un             |
++------------+---------------------+--------+-------+----------+--------------+----------------+
+9 rows in set (0.000 sec)
+
+MariaDB [etecmcm2]> SELECT nome, preco FROM produtos ORDER BY preco ASC LIMIT 5;
++--------------------+-------+
+| nome               | preco |
++--------------------+-------+
+| Água Mineral 500ml |  2.00 |
+| Caixa de Papelão   |  2.50 |
+| Alface Crespa      |  2.50 |
+| Iogurte Natural    |  3.50 |
+| Saco Plástico 50L  |  4.99 |
++--------------------+-------+
+5 rows in set (0.000 sec)
+
+MariaDB [etecmcm2]> SELECT nome, preco FROM produtos ORDER BY preco DESC LIMIT 5;
++------------------+--------+
+| nome             | preco  |
++------------------+--------+
+| Perfume Florais  | 149.90 |
+| Fone Bluetooth   | 120.00 |
+| Picanha Bovina   |  89.90 |
+| Carregador USB-C |  25.00 |
+| Queijo Minas     |  25.00 |
++------------------+--------+
+5 rows in set (0.000 sec)
+
+MariaDB [etecmcm2]> SELECT COUNT(*) AS total_produtos FROM produtos;
++----------------+
+| total_produtos |
++----------------+
+|             20 |
++----------------+
+1 row in set (0.000 sec)
+
+MariaDB [etecmcm2]> SELECT AVG(preco) AS preco_medio FROM produtos;
++-------------+
+| preco_medio |
++-------------+
+|   27.499500 |
++-------------+
+1 row in set (0.000 sec)
+
+MariaDB [etecmcm2]> Ctrl-C -- exit!
+Bye
+
+C:\xampp\mysql\bin>mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 275
+Server version: 10.4.28-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use etecmcm2
+Database changed
+MariaDB [etecmcm2]> SELECT nome, quant FROM produtos ORDER BY quant DESC LIMIT 1;
++-------------------+-------+
+| nome              | quant |
++-------------------+-------+
+| Saco Plástico 50L |   200 |
++-------------------+-------+
+1 row in set (0.000 sec)
+
+MariaDB [etecmcm2]> SELECT p.nome, c.nome_cat FROM produtos p JOIN categorias c ON p.id_categoria = c.id_categoria;
++---------------------+-------------------+
+| nome                | nome_cat          |
++---------------------+-------------------+
+| Detergente Neutro   | Limpeza           |
+| Sabão em Pó         | Limpeza           |
+| Picanha Bovina      | Laticínios        |
+| Peito de Frango     | Laticínios        |
+| Saco Plástico 50L   | Frios             |
+| Caixa de Papelão    | Frios             |
+| Fone Bluetooth      | Enlatados         |
+| Carregador USB-C    | Enlatados         |
+| Refrigerante 2L     | Carnes            |
+| Água Mineral 500ml  | Carnes            |
+| Perfume Florais     | Hortifrut         |
+| Desodorante Roll-On | Hortifrut         |
+| Pizza Calabresa     | Perfumaria        |
+| Lasanha de Frango   | Perfumaria        |
+| Queijo Minas        | Bebidas           |
+| Iogurte Natural     | Bebidas           |
+| Maçã Fuji (kg)      | Eletroeletrônicos |
+| Alface Crespa       | Eletroeletrônicos |
+| Atum em Óleo        | Congelados        |
+| Milho em Conserva   | Congelados        |
++---------------------+-------------------+
+20 rows in set (0.001 sec)
+
+MariaDB [etecmcm2]> SELECT p.nome, p.marca, p.preco FROM produtos p JOIN categorias c ON p.id_categoria = c.id_categoria WHERE c.nome_cat = 'Laticínios';
++-----------------+--------+-------+
+| nome            | marca  | preco |
++-----------------+--------+-------+
+| Picanha Bovina  | Friboi | 89.90 |
+| Peito de Frango | Seara  | 15.00 |
++-----------------+--------+-------+
+2 rows in set (0.000 sec)
+
+MariaDB [etecmcm2]> SELECT c.nome_cat, COUNT(*) AS total_produtos FROM produtos p JOIN categorias c ON p.id_categoria = c.id_categoria GROUP BY c.nome_cat;
++-------------------+----------------+
+| nome_cat          | total_produtos |
++-------------------+----------------+
+| Bebidas           |              2 |
+| Carnes            |              2 |
+| Congelados        |              2 |
+| Eletroeletrônicos |              2 |
+| Enlatados         |              2 |
+| Frios             |              2 |
+| Hortifrut         |              2 |
+| Laticínios        |              2 |
+| Limpeza           |              2 |
+| Perfumaria        |              2 |
++-------------------+----------------+
+10 rows in set (0.001 sec)
+
+MariaDB [etecmcm2]> SELECT * FROM produtos
+    -> WHERE preco BETWEEN 10 AND 20;
++------------+---------------------+-------+-------+----------------+--------------+----------------+
+| id_produto | nome                | preco | quant | marca          | id_categoria | unidade_medida |
++------------+---------------------+-------+-------+----------------+--------------+----------------+
+|          4 | Sabão em Pó         | 12.50 |    30 | OMO            |            1 | un             |
+|          6 | Peito de Frango     | 15.00 |   100 | Seara          |            2 | kg             |
+|         14 | Desodorante Roll-On | 14.00 |    50 | Rexona         |            6 | un             |
+|         16 | Lasanha de Frango   | 18.50 |    35 | Perdigão       |            7 | kg             |
+|         21 | Atum em Óleo        | 10.00 |    80 | Gomes da Costa |           10 | un             |
++------------+---------------------+-------+-------+----------------+--------------+----------------+
+5 rows in set (0.000 sec)
+
+MariaDB [etecmcm2]> SELECT * FROM produtos
+    -> WHERE nome LIKE 'P%';
++------------+-----------------+--------+-------+--------+--------------+----------------+
+| id_produto | nome            | preco  | quant | marca  | id_categoria | unidade_medida |
++------------+-----------------+--------+-------+--------+--------------+----------------+
+|          5 | Picanha Bovina  |  89.90 |    20 | Friboi |            2 | kg             |
+|          6 | Peito de Frango |  15.00 |   100 | Seara  |            2 | kg             |
+|         13 | Perfume Florais | 149.90 |    15 | Natura |            6 | un             |
+|         15 | Pizza Calabresa |  22.90 |    40 | Sadia  |            7 | kg             |
++------------+-----------------+--------+-------+--------+--------------+----------------+
+4 rows in set (0.001 sec)
+
+MariaDB [etecmcm2]> SELECT DISTINCT marca FROM produtos;
++-------------------+
+| marca             |
++-------------------+
+| Ypê               |
+| OMO               |
+| Friboi            |
+| Seara             |
+| Melhoramentos     |
+| Santa Clara       |
+| Philips           |
+| Samsung           |
+| Coca-Cola         |
+| Crystal           |
+| Natura            |
+| Rexona            |
+| Sadia             |
+| Perdigão          |
+| Itambé            |
+| Nestlé            |
+| Fazenda São Paulo |
+| Horta Feliz       |
+| Gomes da Costa    |
+| Quero             |
++-------------------+
+20 rows in set (0.000 sec)

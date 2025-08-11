@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `carro` (
-  `ano` date NOT NULL,
+  `ano` year NOT NULL,
   `codcarro` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -41,7 +41,7 @@ CREATE TABLE `carro` (
 CREATE TABLE `cliente` (
   `nome` varchar(255) NOT NULL,
   `datanascimento` date NOT NULL,
-  `telefone` int(12) NOT NULL,
+  `telefone` varchar(20) NOT NULL,
   `email` varchar(320) NOT NULL,
   `codcliente` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
